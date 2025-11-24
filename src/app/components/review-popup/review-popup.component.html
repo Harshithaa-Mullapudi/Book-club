@@ -1,0 +1,33 @@
+<div class="modal-backdrop fade show"></div>
+<div class="modal d-block" tabindex="-1" role="dialog" style="z-index: 1060;">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Submit Review</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="onClose()"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label class="form-label">Your name</label>
+            <input class="form-control" formControlName="reviewer">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Rating</label>
+            <select class="form-select" formControlName="rating">
+              <option *ngFor="let i of [5,4,3,2,1]" [value]="i">{{i}}</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Comment</label>
+            <textarea class="form-control" rows="3" formControlName="comment"></textarea>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-secondary me-2" (click)="onClose()">Cancel</button>
+            <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

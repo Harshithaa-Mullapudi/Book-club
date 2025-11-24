@@ -1,0 +1,13 @@
+<div class="container my-4">
+  <h2 class="mb-3">Books</h2>
+
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-md-4" *ngFor="let book of books">
+      <app-book-card [book]="book"></app-book-card>
+    </div>
+  </div>
+</div>
